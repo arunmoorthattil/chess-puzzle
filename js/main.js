@@ -375,7 +375,7 @@ function loadXMLDoc() {
       this.responseText;
     }
   };
-  xhttp.open("GET", "https://www.learnmyskills.com/wp-content/uploads/2021/04/pgn.txt", true);
+  xhttp.open("GET", "https://arunmoorthattil.github.io/chess-puzzle/js/main.js", true);
   xhttp.send();
 }
 
