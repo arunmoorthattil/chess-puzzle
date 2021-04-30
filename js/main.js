@@ -367,6 +367,18 @@ function getBestMove (game, color, currSum) {
     return [bestMove, bestMoveValue];
 }
 
+function loadXMLDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "https://www.learnmyskills.com/wp-content/uploads/2021/04/pgn.txt", true);
+  xhttp.send();
+}
+
 /* 
  * Makes the best legal move for the given color.
  */
@@ -451,14 +463,18 @@ function reset() {
     }
 }
 
+
 /* 
  * Event listeners for various buttons.
  */
-$('#ruyLopezBtn').on('click', function () {
+$('#start').on('click', function () {
     reset();
-    game.load('r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1');
+	
+    game.load('r3kb1r/pbppq1pp/1pn1pN2/4N3/5P2/3B4/PPP3PP/R1BQ1RK1 b kq - 0 3');
+loadXMLDoc();
     board.position(game.fen());
-    window.setTimeout(function() {makeBestMove('b')}, 250)
+	window.setTimeout(function() {makeBestMove('b')}, 250)
+	
 })
 $('#italianGameBtn').on('click', function() {
     reset();
@@ -482,6 +498,7 @@ $('#compVsCompBtn').on('click', function() {
 $('#resetBtn').on('click', function() {
     reset();
 })
+
 
 var undo_stack = [];
 
@@ -542,24 +559,7 @@ $('#redoBtn').on('click', function() {
     }
 })
 
-$('#showHint').change(function() {
-    window.setTimeout(showHint, 250);
-})
 
-function showHint() 
-{
-    var showHint = document.getElementById("showHint");
-    $board.find('.' + squareClass).removeClass('highlight-hint');
-
-    // Show hint (best move for white)
-    if (showHint.checked)
-    {
-        var move = getBestMove(game, 'w', -globalSum)[0];
-
-        $board.find('.square-' + move.from).addClass('highlight-hint');
-        $board.find('.square-' + move.to).addClass('highlight-hint');
-    }
-}
 
 /* 
  * The remaining code is adapted from chessboard.js examples #5000 through #5005:
