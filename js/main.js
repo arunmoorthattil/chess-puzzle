@@ -628,9 +628,6 @@ function onDrop (source, target) {
         // Make the best move for black
         window.setTimeout(function() {
             makeBestMove('b');
-            window.setTimeout(function() {
-                showHint();
-            }, 250);
         }, 250)
     } 
 }
