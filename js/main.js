@@ -374,9 +374,9 @@ jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn', fu
 
    cFen = data.split("\n");
   
-    console.log(cFen);    
+   
 });
-	
+ console.log(cFen);    	
 return cFen;	
 }
 
