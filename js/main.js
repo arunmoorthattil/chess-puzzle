@@ -369,7 +369,7 @@ function getBestMove (game, color, currSum) {
 
 function loadPGN() {
 var lines;
-jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn.pgn', function (data) {
+jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn', function (data) {
 
    lines = data.split("\n");
 
