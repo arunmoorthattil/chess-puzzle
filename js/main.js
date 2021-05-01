@@ -18,6 +18,7 @@ var squareClass = 'square-55d63'
 var squareToHighlight = null
 var colorToHighlight = null
 var positionCount;
+var cFen;
 
 var config = {
     draggable: true,
@@ -31,6 +32,7 @@ var config = {
 board = Chessboard('myBoard', config)
 
 timer = null;
+
 
 /* 
  * Piece Square Tables, adapted from Sunfish.py:
@@ -368,19 +370,14 @@ function getBestMove (game, color, currSum) {
 }
 
 function loadPGN() {
-var lines;
 jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn', function (data) {
 
-   lines = data.split("\n");
-
-    $.each(lines, function (n, elem) {
-        $('#content_area').append('<div>' + elem + '</div>');
-
-    });
-    console.log(lines);    
+   cFen = data.split("\n");
+  
+    console.log(cFen);    
 });
 	
-return lines;	
+return cFen;	
 }
 
 /* 
