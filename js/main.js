@@ -371,10 +371,10 @@ function loadXMLDoc() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-    console.log(this.responseText);
+    return this.responseText;
     }
   };
-  xhttp.open("GET", "https://arunmoorthattil.github.io/chess-puzzle/js/main.js", true);
+  xhttp.open("GET", "https://www.learnmyskills.com/wp-content/uploads/2021/04/pgn.txt", true);
   xhttp.send();
 }
 
@@ -393,7 +393,7 @@ function makeBestMove(color) {
 
     globalSum = evaluateBoard(move, globalSum, 'b');
     updateAdvantage();
-
+  console.log(move);
     game.move(move);
     board.position(game.fen());
 
@@ -470,7 +470,8 @@ $('#start').on('click', function () {
     reset();
 	
     game.load('r3kb1r/pbppq1pp/1pn1pN2/4N3/5P2/3B4/PPP3PP/R1BQ1RK1 b kq - 0 3');
-loadXMLDoc();
+var string =loadXMLDoc();
+	console.log(string);
     board.position(game.fen());
 	window.setTimeout(function() {makeBestMove('b')}, 250)
 	
