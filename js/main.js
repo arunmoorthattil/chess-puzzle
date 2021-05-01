@@ -373,11 +373,12 @@ function loadPGN() {
 jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn', function (data) {
 
    cFen = data.split("\n");
-  
-   
+	game.load('r3kb1r/pbppq1pp/1pn1pN2/4N3/5P2/3B4/PPP3PP/R1BQ1RK1 b kq - 0 3');
+     var string =loadPGN();
+	console.log(string);
+    board.position(game.fen());
+	window.setTimeout(function() {makeBestMove('b')}, 250);     
 });
- console.log(cFen);    	
-return cFen;	
 }
 
 /* 
@@ -470,12 +471,7 @@ function reset() {
  */
 $('#start').on('click', function () {
     reset();
-	
-    game.load('r3kb1r/pbppq1pp/1pn1pN2/4N3/5P2/3B4/PPP3PP/R1BQ1RK1 b kq - 0 3');
-     var string =loadPGN();
-	console.log(string);
-    board.position(game.fen());
-	window.setTimeout(function() {makeBestMove('b')}, 250)
+  loadPGN();
 	
 })
 $('#italianGameBtn').on('click', function() {
