@@ -368,14 +368,19 @@ function getBestMove (game, color, currSum) {
 }
 
 function loadPGN() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-    return this.responseText;
-    }
-  };
-  xhttp.open("GET", "https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn", true);
-  xhttp.send();
+var lines;
+jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/data_pgn.pgn', function (data) {
+
+   lines = data.split("\n");
+
+    $.each(lines, function (n, elem) {
+        $('#content_area').append('<div>' + elem + '</div>');
+
+    });
+    console.log(lines);    
+});
+	
+return lines;	
 }
 
 /* 
