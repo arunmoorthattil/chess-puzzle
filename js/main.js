@@ -473,7 +473,7 @@ $('#start').on('click', function () {
 })
 $('#italianGameBtn').on('click', function() {
     reset();
-    game.load('r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1');
+    game.load('Bnkr1r2/2p2R2/pp4pb/2pPp2p/N3P2P/8/PPP5/1K3R2 w - - 3 28');
     board.position(game.fen());
     window.setTimeout(function() {makeBestMove('b')}, 250)
 })
