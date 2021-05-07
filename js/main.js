@@ -386,19 +386,19 @@ jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn', fu
  * Makes the best legal move for the given color.
  */
 function makeBestMove(color) {
-    if (color === 'b')
-    {
-        var move = getBestMove(game, color, globalSum)[0];
-    }
-    else
-    {
-        var move = getBestMove(game, color, -globalSum)[0];
-    }
+    //if (color === 'b')
+  //  {
+   //     var move = getBestMove(game, color, globalSum)[0];
+   // }
+   // else
+   // {
+       // var move = getBestMove(game, color, -globalSum)[0];
+    //}
 
-    globalSum = evaluateBoard(move, globalSum, 'b');
-    updateAdvantage();
-  console.log(move);
-    game.move(move);
+   // globalSum = evaluateBoard(move, globalSum, 'b');
+   // updateAdvantage();
+   // console.log(move);
+    game.move('Qxf6');
     board.position(game.fen());
 
     if (color === 'b')
