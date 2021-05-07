@@ -377,7 +377,8 @@ jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn', fu
 	console.log(fen)
 	game.load(fen);
          board.position(game.fen());
-	game.move('Qxf6');     
+	window.setTimeout(function() {makeBestMove('b')}, 250)
+	     
 });
 }
 
