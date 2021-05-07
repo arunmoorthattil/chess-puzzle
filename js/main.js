@@ -372,7 +372,7 @@ function getBestMove (game, color, currSum) {
 function loadPGN() {
 jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn', function (data) {
        var cFen = data.split("\n");
-	var fen=cFen[7].substring(5,cFen[7].length-1);
+	var fen=cFen[7].substring(6,cFen[7].length-2);
 	fen+="0 1";
 	console.log(fen)
 	game.load(fen);
