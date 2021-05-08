@@ -491,6 +491,7 @@ function reset() {
  */
 $('#start').on('click', function () {
     reset();
+	currPos=0;
    var fen=positions[currPos].fen;
       	console.log(fen)
 	game.load(fen);
@@ -500,6 +501,7 @@ $('#start').on('click', function () {
 })
 $('#Next').on('click', function() {
 	currPos+=1;
+	console.log(currPos);
    var fen=positions[currPos].fen;
 	currMov=0;
       	console.log(fen)
