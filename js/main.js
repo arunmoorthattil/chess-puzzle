@@ -439,9 +439,8 @@ function makeBestMove(color) {
    // updateAdvantage();
    // console.log(move);
     var mv=positions[currPos].moves[currMov++];
-    game.move(mv);
+    var move= game.move(mv);
     board.position(game.fen());
-
     if (color === 'b')
     {
         checkStatus('black');
@@ -513,7 +512,7 @@ function reset() {
  */
 $('#start').on('click', function () {
     reset();
-   var fen=positions[currPos++].fen;
+   var fen=positions[currPos].fen;
       	console.log(fen)
 	game.load(fen);
          board.position(game.fen());
@@ -521,7 +520,8 @@ $('#start').on('click', function () {
 	
 })
 $('#Next').on('click', function() {
-   var fen=positions[currPos++].fen;
+	currPos+=1;
+   var fen=positions[currPos].fen;
 	currMov=0;
       	console.log(fen)
 	game.load(fen);
