@@ -33,8 +33,7 @@ var config = {
 }
 var positions = [
     {fen: 'rn1qk2r/p1p2ppp/1pb5/2b5/2QP4/4PNP1/P4PBP/R1B1K2R b KQkq - 0 12',
-     moves: ['Ne5, 'Re7', 'Rf7', 'Rg7', 'Rh7#', 'R7xd6', 'Rc7', 'Rb7', 'Ra7',
-             'Qf7', 'Bxe5', 'Bxe5', 'Nxc6', 'Qxc6+', 'Kf8', 'Q6h5#', 'dxe5']},
+     moves: ['Ne5', 'Bxe5', 'Bxc6+', 'Nxc6', 'Rh7#', 'Qxc6+', 'Kf8', 'dxe5']},
     {fen: '1r3k2/P1P5/8/8/8/8/8/R3K2R w KQ - 0 1',
      moves: ['a8=Q', 'a8=R', 'a8=B', 'a8=N', 'axb8=Q+', 'axb8=R+', 'axb8=B',
              'axb8=N', 'c8=Q+', 'c8=R+', 'c8=B', 'c8=N', 'cxb8=Q+', 'cxb8=R+',
