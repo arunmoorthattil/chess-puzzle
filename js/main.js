@@ -438,8 +438,10 @@ function makeBestMove(color) {
    // globalSum = evaluateBoard(move, globalSum, 'b');
    // updateAdvantage();
    // console.log(move);
-    var mv=positions[currPos].moves[currMov++];
+    var mv=positions[currPos].moves[currMov];
+	currMov+=+1;
     var move= game.move(mv);
+	console.log(move);
     board.position(game.fen());
     if (color === 'b')
     {
@@ -466,22 +468,6 @@ function makeBestMove(color) {
 
         $board.find('.square-' + squareToHighlight)
         .addClass('highlight-' + colorToHighlight)
-    }
-}
-
-/* 
- * Plays Computer vs. Computer, starting with a given color.
- */
-function compVsComp(color)
-{
-    if (!checkStatus({'w': 'white', 'b': 'black'}[color]))
-    {
-        timer = window.setTimeout(function () {
-            makeBestMove(color);
-            if (color === 'w') {color = 'b'}
-            else {color = 'w'}
-            compVsComp(color);   
-        }, 250);
     }
 }
 
@@ -516,7 +502,7 @@ $('#start').on('click', function () {
       	console.log(fen)
 	game.load(fen);
          board.position(game.fen());
-	window.setTimeout(function() {makeBestMove('b')}, 250)
+	window.setTimeout(function() {makeBestMove(game.turn() )}, 250)
 	
 })
 $('#Next').on('click', function() {
@@ -526,7 +512,7 @@ $('#Next').on('click', function() {
       	console.log(fen)
 	game.load(fen);
          board.position(game.fen());
-	window.setTimeout(function() {makeBestMove('b')}, 250)
+	window.setTimeout(function() {makeBestMove(game.turn())}, 250)
 })
 $('#startBtn').on('click', function() {
     reset();
