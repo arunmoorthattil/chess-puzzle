@@ -412,7 +412,7 @@ function getBestMove (game, color, currSum) {
 
 function loadPGN() {
 jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn', function (data) {
-	var fen=positions[currPos].fen;
+	var fen=positions[currPos++].fen;
       	console.log(fen)
 	game.load(fen);
          board.position(game.fen());
@@ -511,19 +511,19 @@ function reset() {
  */
 $('#start').on('click', function () {
     reset();
-  loadPGN();
+   var fen=positions[currPos++].fen;
+      	console.log(fen)
+	game.load(fen);
+         board.position(game.fen());
+	window.setTimeout(function() {makeBestMove('b')}, 250)
 	
 })
-$('#italianGameBtn').on('click', function() {
-    reset();
-    game.load('Bnkr1r2/2p2R2/pp4pb/2pPp2p/N3P2P/8/PPP5/1K3R2 w - - 3 28');
-    board.position(game.fen());
-    window.setTimeout(function() {makeBestMove('b')}, 250)
-})
-$('#sicilianDefenseBtn').on('click', function() {
-    reset();
-    game.load('rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1');
-    board.position(game.fen());
+$('#Next').on('click', function() {
+   var fen=positions[currPos++].fen;
+      	console.log(fen)
+	game.load(fen);
+         board.position(game.fen());
+	window.setTimeout(function() {makeBestMove('b')}, 250)
 })
 $('#startBtn').on('click', function() {
     reset();
