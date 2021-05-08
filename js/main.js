@@ -11,7 +11,8 @@ var board = null
 var $board = $('#myBoard')
 var game = new Chess()
 var globalSum = 0                     // always from black's perspective. Negative for white's perspective.
-var currPos=1
+var currPos=0
+var currMov=0
 var whiteSquareGrey = '#a9a9a9'
 var blackSquareGrey = '#696969'
 
@@ -437,7 +438,8 @@ function makeBestMove(color) {
    // globalSum = evaluateBoard(move, globalSum, 'b');
    // updateAdvantage();
    // console.log(move);
-    game.move('Qxf6');
+    var mv=positions[currPos].moves[currMov++];
+    game.move(mv);
     board.position(game.fen());
 
     if (color === 'b')
@@ -520,6 +522,7 @@ $('#start').on('click', function () {
 })
 $('#Next').on('click', function() {
    var fen=positions[currPos++].fen;
+	currMov=0;
       	console.log(fen)
 	game.load(fen);
          board.position(game.fen());
