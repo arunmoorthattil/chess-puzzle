@@ -432,7 +432,7 @@ function makeBestMove(color) {
    // updateAdvantage();
    // console.log(move);
     var mv=positions[currPos].moves[currMov];
-	currMov+=+1;
+	currMov+=2;
     var move= game.move(mv);
 	console.log(move);
     board.position(game.fen());
