@@ -214,7 +214,7 @@ function makeBestMove(color) {
         var move= game.move(mv);
 	console.log(move);
 	console.log(color)
-	currMov+-=1;
+	currMov+=1;
     board.position(game.fen());
     if (color ==='b')
     {
@@ -241,27 +241,6 @@ function makeBestMove(color) {
 
         $board.find('.square-' + squareToHighlight)
         .addClass('highlight-' + colorToHighlight)
-    }
-}
-
-/*
- * Resets the game to its initial state.
- */
-function reset() {
-    game.reset();
-    globalSum = 0;
-    $board.find('.' + squareClass).removeClass('highlight-white');
-    $board.find('.' + squareClass).removeClass('highlight-black');
-    $board.find('.' + squareClass).removeClass('highlight-hint')
-    board.position(game.fen());
-    $('#advantageColor').text('Neither side');
-    $('#advantageNumber').text(globalSum);
-
-    // Kill the Computer vs. Computer callback
-    if (timer)
-    {
-        clearTimeout(timer);
-        timer = null;
     }
 }
 
