@@ -157,7 +157,7 @@ var pstOpponent = {'w': pst_b, 'b': pst_w};
 var pstSelf = {'w': pst_w, 'b': pst_b};
 
 function checkStatus (color) {
-    else if (color==='comp')
+    if (color==='comp')
     {
 	      $('#status').html(" ")
     }
