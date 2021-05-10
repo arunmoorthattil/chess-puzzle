@@ -280,11 +280,11 @@ jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn', fu
  */
 function makeBestMove(color) {
      var mv=positions[currPos].moves[currMov];
-	currMov+=2;
+        currMov+=2;
     var move= game.move(mv);
 	console.log(move);
     board.position(game.fen());
-    if (color === 'b')
+    if (color === 'black')
     {
         checkStatus('black');
 
