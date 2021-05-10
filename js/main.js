@@ -330,15 +330,13 @@ function onDragStart (source, piece) {
 function onDrop (source, target) {
     undo_stack = [];
     removeGreySquares();
-   var curfen=game.fen();
     // see if the move is legal
-	var color=game.turn();
     var move = game.move({
         from: source,
         to: target,
         promotion: 'q' // NOTE: always promote to a queen for example simplicity
     })
-   console.log(move);
+    console.log(move);
     // Illegal move
     if (move === null) return 'snapback'
       var moves = game.moves();
@@ -350,11 +348,11 @@ function onDrop (source, target) {
     }else {
 	    checkStatus('white');
     }
-	var mvc=game.move_to_san(move,moves);
-	console.log(mvc);
+	var mvc=game.move_to_san(move,moves)
+        console.log();
         console.log(mv);
 	console.log(mvc!== mv);
-     if (mvc!== mv)  return  game.undo_move();
+      if (mvc!== mv)  return  game.undo_move();
       currPos+=1;
         // Highlight latest move
     $board.find('.' + squareClass).removeClass('highlight-white')
