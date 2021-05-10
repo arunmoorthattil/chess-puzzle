@@ -349,6 +349,8 @@ function onDrop (source, target) {
     }else {
 	    checkStatus('white');
     }
+	console.log(moves[currMov]);
+	console.log(moves[currMov] !== mv);
      if (moves[currMov] !== mv)  return  'snapback'
       currPos+=1;
         // Highlight latest move
