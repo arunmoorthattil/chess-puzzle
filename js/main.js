@@ -428,7 +428,7 @@ function onDrop (source, target) {
             makeBestMove(game.turn);
         }, 250)
     }
-}
+
 
 function onMouseoverSquare (square, piece) {
     // get list of possible moves for this square
