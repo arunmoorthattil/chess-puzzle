@@ -281,7 +281,7 @@ $('#start').on('click', function () {
       	console.log(fen)
 	game.load(fen);
          board.position(game.fen());
-	if(game.turn()!='white'){
+	if(game.turn()!='w'){
 	window.setTimeout(function() {makeBestMove(game.turn() )}, 250)
 	}
 	
@@ -294,7 +294,7 @@ $('#Next').on('click', function() {
       	console.log(fen)
 	game.load(fen);
          board.position(game.fen());
-	if(game.turn()!='white'){
+	if(game.turn()!='w'){
 	window.setTimeout(function() {makeBestMove(game.turn())}, 250)
 	}
 })
