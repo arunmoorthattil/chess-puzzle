@@ -227,8 +227,7 @@ function makeBestMove(color) {
  */
 $('#start').on('click', function () {
 	
-	var input = document.querySelector('[name="start"]');
-       input.setAttribute('disabled', true);
+	document.getElementById("start").disabled = true;
 	currPos=0;
    var fen=positions[currPos].fen;
       	console.log(fen)
