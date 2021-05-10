@@ -1771,7 +1771,8 @@ var Chess = function(fen) {
             : false
   
         var move_obj = null
-  
+         console.log(move);
+          console.log(move === 'string');
         if (typeof move === 'string') {
           move_obj = move_from_san(move, sloppy)
         } else if (typeof move === 'object') {
