@@ -353,7 +353,7 @@ function onDrop (source, target) {
         console.log(mv);
 	console.log(move.san!== mv);
       if (move.san!== mv)  return  game.undo_move();
-      currPos+=1;
+      currMov+=1;
         // Highlight latest move
     $board.find('.' + squareClass).removeClass('highlight-white')
     
