@@ -351,6 +351,7 @@ function onDrop (source, target) {
 	    checkStatus('white');
     }
 	console.log(moves[currMov]);
+        console.log(mv);
 	console.log(moves[currMov] !== mv);
      if (moves[currMov] !== mv)  return  'snapback'
       currPos+=1;
