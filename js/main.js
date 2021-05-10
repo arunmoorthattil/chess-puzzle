@@ -340,7 +340,7 @@ function onDrop (source, target) {
    console.log('onDrop'+move);
     // Illegal move
     if (move === null) return 'snapback'
-      var moves = chess.moves();
+      var moves = game.moves();
       var mv=positions[currPos].moves[currMov];
      if (moves[currMov] !== mv) {     $('#status').html(`Not a correct Move, Try again.`) ; return  'snapback';}
       currPos+=1;
