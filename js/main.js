@@ -182,7 +182,11 @@ function checkStatus (color) {
         $('#status').html(`Oops, <b>${color}</b> is in <b>check!</b>`);
         return false;
     }
-    else
+    else if (color==='comp')
+    {
+	      $('#status').html(" ")
+    }
+	else 
     {
       $('#status').html(`Not a correct Move, Try again.`) ;
         return false;
@@ -216,11 +220,10 @@ function makeBestMove(color) {
 	console.log(color)
 	currMov+=1;
     board.position(game.fen());
+	checkStatus('comp');
     if (color ==='b')
     {
-        checkStatus('black');
-
-        // Highlight black move
+       // Highlight black move
         $board.find('.' + squareClass).removeClass('highlight-black')
         $board.find('.square-' + move.from).addClass('highlight-black')
         squareToHighlight = move.to
@@ -231,9 +234,7 @@ function makeBestMove(color) {
     }
     else
     {
-        checkStatus('white');
-
-        // Highlight white move
+          // Highlight white move
         $board.find('.' + squareClass).removeClass('highlight-white')
         $board.find('.square-' + move.from).addClass('highlight-white')
         squareToHighlight = move.to
@@ -242,6 +243,7 @@ function makeBestMove(color) {
         $board.find('.square-' + squareToHighlight)
         .addClass('highlight-' + colorToHighlight)
     }
+	
 }
 
 
@@ -331,7 +333,7 @@ function onDrop (source, target) {
         console.log(move.san);
         console.log(mv);
 	console.log(move.san!== mv);
-      if (move.san!== mv)  return 'snapback'
+      if (move.san!== mv)  return game.undo();
       currMov+=1;
         // Highlight latest move
     $board.find('.' + squareClass).removeClass('highlight-white')
