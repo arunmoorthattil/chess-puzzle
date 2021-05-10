@@ -338,7 +338,7 @@ function onDrop (source, target) {
         to: target,
         promotion: 'q' // NOTE: always promote to a queen for example simplicity
     })
-   console.log('onDrop'+move);
+   console.log(move);
     // Illegal move
     if (move === null) return 'snapback'
       var moves = game.moves();
@@ -350,7 +350,7 @@ function onDrop (source, target) {
     }else {
 	    checkStatus('white');
     }
-	console.log(moves[currMov]);
+	console.log(moves);
         console.log(mv);
 	console.log(moves[currMov] !== mv);
      if (moves[currMov] !== mv)  return  'snapback'
