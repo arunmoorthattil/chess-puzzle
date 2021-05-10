@@ -350,10 +350,11 @@ function onDrop (source, target) {
     }else {
 	    checkStatus('white');
     }
-	console.log(moves);
+	var mvc=game.move_to_san(move,moves);
+	console.log(mvc);
         console.log(mv);
-	console.log(moves[currMov] !== mv);
-     if (moves[currMov] !== mv)  return  'snapback'
+	console.log(mvc!== mv);
+     if (mvc!== mv)  return  game.undo_move();
       currPos+=1;
         // Highlight latest move
     $board.find('.' + squareClass).removeClass('highlight-white')
