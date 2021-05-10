@@ -249,7 +249,6 @@ function makeBestMove(color) {
  * Event listeners for various buttons.
  */
 $('#start').on('click', function () {
-    reset();
 	currPos=0;
    var fen=positions[currPos].fen;
       	console.log(fen)
