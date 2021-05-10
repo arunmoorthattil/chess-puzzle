@@ -330,7 +330,7 @@ function onDragStart (source, piece) {
 function onDrop (source, target) {
     undo_stack = [];
     removeGreySquares();
-    console.log( source + target);
+   var curfen=game.fen();
     // see if the move is legal
 	var color=game.turn();
     var move = game.move({
