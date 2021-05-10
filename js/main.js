@@ -336,11 +336,11 @@ function onDrop (source, target) {
         to: target,
         promotion: 'q' // NOTE: always promote to a queen for example simplicity
     })
-    console.log(move);
+
     // Illegal move
     if (move === null) return 'snapback'
-      var moves = game.moves();
       var mv=positions[currPos].moves[currMov];
+	color=game.turn();
 	if (color ==='b')
     {
         checkStatus('black');
@@ -348,6 +348,7 @@ function onDrop (source, target) {
     }else {
 	    checkStatus('white');
     }
+	console.log(move);
         console.log(move.san);
         console.log(mv);
 	console.log(move.san!== mv);
