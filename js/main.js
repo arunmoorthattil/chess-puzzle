@@ -280,9 +280,12 @@ jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn', fu
  */
 function makeBestMove(color) {
      var mv=positions[currPos].moves[currMov];
+	console.log(currMov)
+	console.log(mv)
         currMov+=2;
-    var move= game.move(mv);
+        var move= game.move(mv);
 	console.log(move);
+	console.log(color)
     board.position(game.fen());
     if (color === 'black')
     {
@@ -406,7 +409,7 @@ function onDrop (source, target) {
         to: target,
         promotion: 'q' // NOTE: always promote to a queen for example simplicity
     })
-
+   console.log('onDrop'+move);
     // Illegal move
     if (move === null) return 'snapback'
     
@@ -420,13 +423,11 @@ function onDrop (source, target) {
     $board.find('.square-' + squareToHighlight)
         .addClass('highlight-' + colorToHighlight)
 
-    if (!checkStatus('black'));
-    {
-        // Make the best move for black
+           // Make the best move for black
         window.setTimeout(function() {
-            makeBestMove('b');
+            makeBestMove(game.turn);
         }, 250)
-    } 
+    }
 }
 
 function onMouseoverSquare (square, piece) {
