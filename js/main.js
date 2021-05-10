@@ -332,6 +332,7 @@ function onDrop (source, target) {
     removeGreySquares();
     console.log( source + target);
     // see if the move is legal
+	var color=game.turn();
     var move = game.move({
         from: source,
         to: target,
