@@ -157,31 +157,6 @@ var pstOpponent = {'w': pst_b, 'b': pst_w};
 var pstSelf = {'w': pst_w, 'b': pst_b};
 
 function checkStatus (color) {
-    if (game.in_checkmate())
-    {
-        $('#status').html(`<b>Checkmate!</b> Oops, <b>${color}</b> lost.`);
-    }
-    else if (game.insufficient_material())
-    {
-        $('#status').html(`It's a <b>draw!</b> (Insufficient Material)`);
-    }
-    else if (game.in_threefold_repetition())
-    {
-        $('#status').html(`It's a <b>draw!</b> (Threefold Repetition)`);
-    }
-    else if (game.in_stalemate())
-    {
-        $('#status').html(`It's a <b>draw!</b> (Stalemate)`);
-    }
-    else if (game.in_draw())
-    {
-        $('#status').html(`It's a <b>draw!</b> (50-move Rule)`);
-    }
-    else if (game.in_check())
-    {
-        $('#status').html(`Oops, <b>${color}</b> is in <b>check!</b>`);
-        return false;
-    }
     else if (color==='comp')
     {
 	      $('#status').html(" ")
@@ -251,6 +226,9 @@ function makeBestMove(color) {
  * Event listeners for various buttons.
  */
 $('#start').on('click', function () {
+	
+	var input = document.querySelector('[name="start"]');
+       input.setAttribute('disabled', true);
 	currPos=0;
    var fen=positions[currPos].fen;
       	console.log(fen)
@@ -335,8 +313,10 @@ function onDrop (source, target) {
 	console.log(move.san!== mv);
       if (move.san!== mv)  return game.undo();
       currMov+=1;
-        // Highlight latest move
-    $board.find('.' + squareClass).removeClass('highlight-white')
+	if(positions[currPos].moves.length===currMov){
+	     $('#status').html("Solved.")
+		// Highlight latest move
+		 $board.find('.' + squareClass).removeClass('highlight-white')
     
     $board.find('.square-' + move.from).addClass('highlight-white')
     squareToHighlight = move.to
@@ -344,13 +324,17 @@ function onDrop (source, target) {
 
     $board.find('.square-' + squareToHighlight)
         .addClass('highlight-' + colorToHighlight)
+	} else{
+		
+        
+   
 
            // Make the best move for black
         window.setTimeout(function() {
             makeBestMove(game.turn());
         }, 250)
     }
-
+}
 
 function onMouseoverSquare (square, piece) {
     // get list of possible moves for this square
