@@ -32,8 +32,8 @@ var config = {
     onSnapEnd: onSnapEnd,
 }
 var positions = [
-    {fen: 'rn1qk2r/p1p2ppp/1pb5/2b5/2QP4/4PNP1/P4PBP/R1B1K2R b KQkq - 0 12',
-     moves: ['Ne5', 'Bxe5', 'Bxc6+', 'Nxc6', 'Rh7#', 'Qxc6+', 'Kf8', 'dxe5']},
+    {fen: 'Bnkr1r2/2p2R2/pp4pb/2pPp2p/N3P2P/8/PPP5/1K3R2 w - - 3 28',
+     moves: ['Nxb6+', 'cxb6', 'Bb7#']},
     {fen: '1r3k2/P1P5/8/8/8/8/8/R3K2R w KQ - 0 1',
      moves: ['a8=Q', 'a8=R', 'a8=B', 'a8=N', 'axb8=Q+', 'axb8=R+', 'axb8=B',
              'axb8=N', 'c8=Q+', 'c8=R+', 'c8=B', 'c8=N', 'cxb8=Q+', 'cxb8=R+',
