@@ -184,7 +184,7 @@ function checkStatus (color) {
     }
     else
     {
-        $('#status').html(`No check, checkmate, or draw.`)
+      $('#status').html(`Not a correct Move, Try again.`) ;
         return false;
     }
     return true;
@@ -342,7 +342,14 @@ function onDrop (source, target) {
     if (move === null) return 'snapback'
       var moves = game.moves();
       var mv=positions[currPos].moves[currMov];
-     if (moves[currMov] !== mv) {     $('#status').html(`Not a correct Move, Try again.`) ; return  'snapback';}
+	if (color ==='b')
+    {
+        checkStatus('black');
+	    
+    }else {
+	    checkStatus('white');
+    }
+     if (moves[currMov] !== mv)  return  'snapback'
       currPos+=1;
         // Highlight latest move
     $board.find('.' + squareClass).removeClass('highlight-white')
