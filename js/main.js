@@ -27,7 +27,7 @@ var config = {
 }
 var positions = [
     {fen: 'Bnkr1r2/2p2R2/pp4pb/2pPp2p/N3P2P/8/PPP5/1K3R2 w - - 3 28',
-     moves: ['cxb6', 'Bb7#']},
+     moves: ['Nxb6+','cxb6', 'Bb7#']},
     {fen: '1r3k2/P1P5/8/8/8/8/8/R3K2R w KQ - 0 1',
      moves: ['a8=Q', 'a8=R', 'a8=B', 'a8=N', 'axb8=Q+', 'axb8=R+', 'axb8=B',
              'axb8=N', 'c8=Q+', 'c8=R+', 'c8=B', 'c8=N', 'cxb8=Q+', 'cxb8=R+',
@@ -340,7 +340,10 @@ function onDrop (source, target) {
    console.log('onDrop'+move);
     // Illegal move
     if (move === null) return 'snapback'
-    
+      var moves = chess.moves();
+      var mv=positions[currPos].moves[currMov];
+     if (moves[currMov] !== mv) {     $('#status').html(`Not a correct Move, Try again.`) ; return  'snapback';}
+      currPos+=1;
         // Highlight latest move
     $board.find('.' + squareClass).removeClass('highlight-white')
     
