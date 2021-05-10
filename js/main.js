@@ -33,7 +33,7 @@ var config = {
 }
 var positions = [
     {fen: 'Bnkr1r2/2p2R2/pp4pb/2pPp2p/N3P2P/8/PPP5/1K3R2 w - - 3 28',
-     moves: ['Nxb6+', 'cxb6', 'Bb7#']},
+     moves: ['cxb6', 'Bb7#']},
     {fen: '1r3k2/P1P5/8/8/8/8/8/R3K2R w KQ - 0 1',
      moves: ['a8=Q', 'a8=R', 'a8=B', 'a8=N', 'axb8=Q+', 'axb8=R+', 'axb8=B',
              'axb8=N', 'c8=Q+', 'c8=R+', 'c8=B', 'c8=N', 'cxb8=Q+', 'cxb8=R+',
@@ -279,19 +279,7 @@ jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn', fu
  * Makes the best legal move for the given color.
  */
 function makeBestMove(color) {
-    //if (color === 'b')
-  //  {
-   //     var move = getBestMove(game, color, globalSum)[0];
-   // }
-   // else
-   // {
-       // var move = getBestMove(game, color, -globalSum)[0];
-    //}
-
-   // globalSum = evaluateBoard(move, globalSum, 'b');
-   // updateAdvantage();
-   // console.log(move);
-    var mv=positions[currPos].moves[currMov];
+     var mv=positions[currPos].moves[currMov];
 	currMov+=2;
     var move= game.move(mv);
 	console.log(move);
@@ -356,7 +344,9 @@ $('#start').on('click', function () {
       	console.log(fen)
 	game.load(fen);
          board.position(game.fen());
+	if(game.turn()!='white'){
 	window.setTimeout(function() {makeBestMove(game.turn() )}, 250)
+	}
 	
 })
 $('#Next').on('click', function() {
@@ -367,46 +357,13 @@ $('#Next').on('click', function() {
       	console.log(fen)
 	game.load(fen);
          board.position(game.fen());
+	if(game.turn()!='white'){
 	window.setTimeout(function() {makeBestMove(game.turn())}, 250)
+	}
 })
 
 
 var undo_stack = [];
-
-function undo()
-{
-    var move = game.undo();
-    undo_stack.push(move);
-
-    // Maintain a maximum stack size
-    if (undo_stack.length > STACK_SIZE)
-    {
-        undo_stack.shift();
-    }
-    board.position(game.fen());
-}
-
-$('#undoBtn').on('click', function() {
-
-    if (game.history().length >= 2)
-    {
-        $board.find('.' + squareClass).removeClass('highlight-white');
-        $board.find('.' + squareClass).removeClass('highlight-black');
-        $board.find('.' + squareClass).removeClass('highlight-hint');
-
-        // Undo twice: Opponent's latest move, followed by player's latest move
-        undo();
-        window.setTimeout(function() {
-            undo();
-            window.setTimeout(function () {showHint()}, 250)
-        }, 250);
-    }
-    else
-    {
-        alert("Nothing to undo.");
-    }  
-})
-
 
 
 /* 
