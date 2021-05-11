@@ -196,6 +196,15 @@ function makeBestMove(color) {
         $board.find('.square-' + squareToHighlight)
         .addClass('highlight-' + colorToHighlight)
     }
+ if(positions[currPos].moves.length===currMov){
+		tpoints+=points;
+		solved+=1;
+		points=0;
+	        $('#status').html("Solved.");
+		 $('#score').html("solved: "+solved);
+		$('#points').html("points: "+tpoints);
+	
+}
 	
 }
 
@@ -208,7 +217,6 @@ $('#start').on('click', function () {
 	document.getElementById("start").disabled = true;
 	currPos=0;
    var fen=positions[currPos].fen;
-      	console.log(fen)
 	game.load(fen);
          board.position(game.fen());
 	if(game.turn()!='w'){
@@ -219,9 +227,11 @@ $('#start').on('click', function () {
 $('#Next').on('click', function() {
 	currPos+=1;
 	console.log(currPos);
-   var fen=positions[currPos].fen;
+	if(currPos===positions.length){
+	document.getElementById("Next").disabled = true;	
+	}
+       var fen=positions[currPos].fen;
 	currMov=0;
-      	console.log(fen)
 	game.load(fen);
          board.position(game.fen());
 	if(game.turn()!='w'){
