@@ -292,14 +292,17 @@ function onDrop (source, target) {
     if (move === null) return 'snapback'
       var mv=positions[currPos].moves[currMov];
 	color=game.turn();
-	if (color ==='b')
+	
+      if (move.san!== mv) { points-=1;  
+  if (color ==='b')
     {
-        checkStatus('black');
-	    
+    checkStatus('black');	    
     }else {
 	    checkStatus('white');
-    }
-      if (move.san!== mv) { points-=1; return game.undo(); }
+    }   
+		   
+return game.undo();
+}
       currMov+=1;
 	if(positions[currPos].moves.length===currMov){
 		tpoints+=points;
