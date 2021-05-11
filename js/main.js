@@ -198,7 +198,7 @@ function makeBestMove(color) {
 	  console.log(points);
 		tpoints+=points;
 		solved+=1;
-		points=0;
+		points=5;
 	 if(positions.length-1===currPos){
 	        $('#status').html(" No more puzzles left.Come back tomorrow for more interesting puzzles");
 	 } else{
@@ -293,7 +293,7 @@ function onDrop (source, target) {
       var mv=positions[currPos].moves[currMov];
 	color=game.turn();
 	
-      if (move.san!== mv) { points-=1;  
+  if (move.san!== mv) { points-=1;  
   if (color ==='b')
     {
     checkStatus('black');	    
