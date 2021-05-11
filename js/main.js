@@ -31,33 +31,8 @@ var config = {
 var positions = [
     {fen: 'Bnkr1r2/2p2R2/pp4pb/2pPp2p/N3P2P/8/PPP5/1K3R2 w - - 3 28',
      moves: ['Nxb6+','cxb6', 'Bb7#']},
-    {fen: '1r3k2/P1P5/8/8/8/8/8/R3K2R w KQ - 0 1',
-     moves: ['a8=Q', 'a8=R', 'a8=B', 'a8=N', 'axb8=Q+', 'axb8=R+', 'axb8=B',
-             'axb8=N', 'c8=Q+', 'c8=R+', 'c8=B', 'c8=N', 'cxb8=Q+', 'cxb8=R+',
-             'cxb8=B', 'cxb8=N', 'Ra2', 'Ra3', 'Ra4', 'Ra5', 'Ra6', 'Rb1',
-             'Rc1', 'Rd1', 'Kd2', 'Ke2', 'Kf2', 'Kf1', 'Kd1', 'Rh2', 'Rh3',
-             'Rh4', 'Rh5', 'Rh6', 'Rh7', 'Rh8+', 'Rg1', 'Rf1+', 'O-O+',
-             'O-O-O']},
-    {fen: '5rk1/8/8/8/8/8/2p5/R3K2R w KQ - 0 1',
-     moves: ['Ra2', 'Ra3', 'Ra4', 'Ra5', 'Ra6', 'Ra7', 'Ra8', 'Rb1', 'Rc1',
-             'Rd1', 'Kd2', 'Ke2', 'Rh2', 'Rh3', 'Rh4', 'Rh5', 'Rh6', 'Rh7',
-             'Rh8+', 'Rg1+', 'Rf1']},
-    {fen: '5rk1/8/8/8/8/8/2p5/R3K2R b KQ - 0 1',
-     moves: ['Rf7', 'Rf6', 'Rf5', 'Rf4', 'Rf3', 'Rf2', 'Rf1+', 'Re8+', 'Rd8',
-             'Rc8', 'Rb8', 'Ra8', 'Kg7', 'Kf7', 'c1=Q+', 'c1=R+', 'c1=B',
-             'c1=N']},
-    {fen: 'r3k2r/p2pqpb1/1n2pnp1/2pPN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R w KQkq c6 0 2',
-     moves: ['gxh3', 'Qxf6', 'Qxh3', 'Nxd7', 'Nxf7', 'Nxg6', 'dxc6', 'dxe6',
-             'Rg1', 'Rf1', 'Ke2', 'Kf1', 'Kd1', 'Rb1', 'Rc1', 'Rd1', 'g3',
-             'g4', 'Be3', 'Bf4', 'Bg5', 'Bh6', 'Bc1', 'b3', 'a3', 'a4', 'Qf4',
-             'Qf5', 'Qg4', 'Qh5', 'Qg3', 'Qe2', 'Qd1', 'Qe3', 'Qd3', 'Na4',
-             'Nb5', 'Ne2', 'Nd1', 'Nb1', 'Nc6', 'Ng4', 'Nd3', 'Nc4', 'd6',
-             'O-O', 'O-O-O']},
-    {fen: 'k7/8/K7/8/3n3n/5R2/3n4/8 b - - 0 1',
-     moves: ['N2xf3', 'Nhxf3', 'Nd4xf3', 'N2b3', 'Nc4', 'Ne4', 'Nf1', 'Nb1',
-             'Nhf5', 'Ng6', 'Ng2', 'Nb5', 'Nc6', 'Ne6', 'Ndf5', 'Ne2', 'Nc2',
-             'N4b3', 'Kb8']},
-  ];
+    {fen: 'r2qk2r/3bppbp/p1np1np1/1p6/3NP3/1BN1BP2/PPPQ2PP/R3K2R w KQkq - 2 11',
+     moves: ['Bh6', 'Bxh6', 'Qxh6', 'Nxd4', 'Qg7', 'Rf8']}];
 
 
 
