@@ -216,8 +216,8 @@ function makeBestMove(color) {
  * Event listeners for various buttons.
  */
 $('#start').on('click', function () {
-	
 	document.getElementById("start").disabled = true;
+	document.getElementById("Next").disabled = false;
 	currPos=0;
         var fen=positions[currPos].fen;
 	game.load(fen);
