@@ -199,7 +199,11 @@ function makeBestMove(color) {
 		tpoints+=points;
 		solved+=1;
 		points=0;
-	        $('#status').html("Solved.");
+	 f(positions.length-1===currPos){
+	        $('#status').html(" No more puzzles left.Come back tomorrow for more interesting puzzles");
+	 } else{
+		   $('#status').html(" Great . You have solved the Puzzle"); 
+	 }	 
 		 $('#score').html("solved: "+solved);
 		$('#points').html("points: "+tpoints);
 	
@@ -301,8 +305,7 @@ function onDrop (source, target) {
 		tpoints+=points;
 		solved+=1;
 		points=5;
-	        $('#status').html("Solved.");
-		 $('#score').html("solved: "+solved);
+	       	 $('#score').html("solved: "+solved);
 		$('#points').html("points: "+tpoints);
 		// Highlight latest move
 		 $board.find('.' + squareClass).removeClass('highlight-white')
@@ -313,6 +316,12 @@ function onDrop (source, target) {
 
     $board.find('.square-' + squareToHighlight)
         .addClass('highlight-' + colorToHighlight)
+f(positions.length-1===currPos){
+	        $('#status').html(" No more puzzles left.Come back tomorrow for more interesting puzzles");
+	 } else{
+		   $('#status').html(" Great . You have solved the Puzzle"); 
+	 }		
+		
 	} else{
 		
         
