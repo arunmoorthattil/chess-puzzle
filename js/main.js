@@ -34,7 +34,7 @@ var positions = [
     {fen: 'r2qk2r/3bppbp/p1np1np1/1p6/3NP3/1BN1BP2/PPPQ2PP/R3K2R w KQkq - 2 11',
      moves: ['Bh6', 'Bxh6', 'Qxh6', 'Nxd4', 'Qg7', 'Rf8']},
 	{ fen:'8/3k4/PKn2p2/2P5/8/8/7P/8 w - - 1 53', 
-	 moves:['f5','h4','f4','h5','f3 ','a7','Nxa7','h6','Nc6','h7','Nd8+','Kb6','Nf7','c6+','Kc8','h8=Q+','Nxh8']}];
+	 moves:['Kb7','f5','h4','f4','h5','f3 ','a7','Nxa7','h6','Nc6','h7','Nd8+','Kb6','Nf7','c6+','Kc8','h8=Q+','Nxh8']}];
 
 
 
