@@ -199,7 +199,7 @@ function makeBestMove(color) {
 		tpoints+=points;
 		solved+=1;
 		points=0;
-	 f(positions.length-1===currPos){
+	 if(positions.length-1===currPos){
 	        $('#status').html(" No more puzzles left.Come back tomorrow for more interesting puzzles");
 	 } else{
 		   $('#status').html(" Great . You have solved the Puzzle"); 
@@ -316,7 +316,7 @@ function onDrop (source, target) {
 
     $board.find('.square-' + squareToHighlight)
         .addClass('highlight-' + colorToHighlight)
-f(positions.length-1===currPos){
+if(positions.length-1===currPos){
 	        $('#status').html(" No more puzzles left.Come back tomorrow for more interesting puzzles");
 	 } else{
 		   $('#status').html(" Great . You have solved the Puzzle"); 
