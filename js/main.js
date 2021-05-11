@@ -204,7 +204,7 @@ function makeBestMove(color) {
 	 } else{
 		   $('#status').html(" Great . You have solved the Puzzle"); 
 	 }	 
-		 $('#score').html("solved: "+solved);
+		 $('#score').html("Puzzles: "+solved);
 		$('#points').html("points: "+tpoints);
 	
 }
@@ -308,7 +308,7 @@ return game.undo();
 		tpoints+=points;
 		solved+=1;
 		points=5;
-	       	 $('#score').html("solved: "+solved);
+	       	 $('#score').html("Puzzles: "+solved);
 		$('#points').html("points: "+tpoints);
 		// Highlight latest move
 		 $board.find('.' + squareClass).removeClass('highlight-white')
