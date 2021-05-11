@@ -7,6 +7,9 @@ var game = new Chess()
 var globalSum = 0                     // always from black's perspective. Negative for white's perspective.
 var currPos=0
 var currMov=0
+var solved=0
+var tpoints=0;
+var points=5;
 var whiteSquareGrey = '#a9a9a9'
 var blackSquareGrey = '#696969'
 
@@ -306,14 +309,15 @@ function onDrop (source, target) {
     }else {
 	    checkStatus('white');
     }
-	console.log(move);
-        console.log(move.san);
-        console.log(mv);
-	console.log(move.san!== mv);
-      if (move.san!== mv)  return game.undo();
+      if (move.san!== mv) { points-=1; return game.undo(); }
       currMov+=1;
 	if(positions[currPos].moves.length===currMov){
-	     $('#status').html("Solved.")
+		tpoints+=points;
+		solved+=1;
+		points=0;
+	        $('#status').html("Solved.");
+		 $('#count').html(solved);
+		$('#points').html(tpoints);
 		// Highlight latest move
 		 $board.find('.' + squareClass).removeClass('highlight-white')
     
