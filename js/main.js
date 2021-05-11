@@ -225,12 +225,15 @@ $('#start').on('click', function () {
 $('#Next').on('click', function() {
 	currPos+=1;
 	if(currPos===positions.length-1){
-	document.getElementById("Next").disabled = true;	
+	document.getElementById("Next").disabled = true;
+		console.log("next disabled");
 	}
          var fen=positions[currPos].fen;
 	 currMov=0;
+	console.log(fen);
 	 game.load(fen);
          board.position(game.fen());
+	console.log(game);
 	if(game.turn()!='w'){
 	window.setTimeout(function() {makeBestMove(game.turn())}, 250)
 	}
