@@ -166,6 +166,7 @@ jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn', fu
  * Makes the best legal move for the given color.
  */
 function makeBestMove(color) {
+	console.log(currPos);
         var mv=positions[currPos].moves[currMov];
         var move= game.move(mv);
 	currMov+=1;
