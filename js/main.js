@@ -316,8 +316,8 @@ function onDrop (source, target) {
 		solved+=1;
 		points=0;
 	        $('#status').html("Solved.");
-		 $('#count').html(solved);
-		$('#points').html(tpoints);
+		 $('#score').html("solved"+solved);
+		$('#points').html("points"+tpoints);
 		// Highlight latest move
 		 $board.find('.' + squareClass).removeClass('highlight-white')
     
