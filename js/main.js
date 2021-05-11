@@ -166,15 +166,10 @@ jQuery.get('https://arunmoorthattil.github.io/chess-puzzle/css/pgn_data.pgn', fu
  * Makes the best legal move for the given color.
  */
 function makeBestMove(color) {
-	console.log(currPos+' moves'+ currMov);
         var mv=positions[currPos].moves[currMov];
-	console.log(currMov);
-	console.log(mv);
         var move= game.move(mv);
-	console.log(move);
-	console.log(color)
 	currMov+=1;
-    board.position(game.fen());
+        board.position(game.fen());
 	checkStatus('comp');
     if (color ==='b')
     {
@@ -183,7 +178,6 @@ function makeBestMove(color) {
         $board.find('.square-' + move.from).addClass('highlight-black')
         squareToHighlight = move.to
         colorToHighlight = 'black'
-
         $board.find('.square-' + squareToHighlight)
         .addClass('highlight-' + colorToHighlight)
     }
@@ -220,7 +214,7 @@ $('#start').on('click', function () {
 	
 	document.getElementById("start").disabled = true;
 	currPos=0;
-   var fen=positions[currPos].fen;
+        var fen=positions[currPos].fen;
 	game.load(fen);
          board.position(game.fen());
 	if(game.turn()!='w'){
@@ -230,13 +224,12 @@ $('#start').on('click', function () {
 })
 $('#Next').on('click', function() {
 	currPos+=1;
-	console.log(currPos);
-	if(currPos===positions.length){
+	if(currPos===positions.length-1){
 	document.getElementById("Next").disabled = true;	
 	}
-       var fen=positions[currPos].fen;
-	currMov=0;
-	game.load(fen);
+         var fen=positions[currPos].fen;
+	 currMov=0;
+	 game.load(fen);
          board.position(game.fen());
 	if(game.turn()!='w'){
 	window.setTimeout(function() {makeBestMove(game.turn())}, 250)
