@@ -310,27 +310,13 @@ return game.undo();
 		points=5;
 	       	 $('#score').html("Puzzles: "+solved);
 		$('#points').html("points: "+tpoints);
-		// Highlight latest move
-		 $board.find('.' + squareClass).removeClass('highlight-white')
-    
-    $board.find('.square-' + move.from).addClass('highlight-white')
-    squareToHighlight = move.to
-    colorToHighlight = 'white'
-
-    $board.find('.square-' + squareToHighlight)
-        .addClass('highlight-' + colorToHighlight)
 if(positions.length-1===currPos){
-	        $('#status').html(" No more puzzles left.Come back tomorrow for more interesting puzzles");
-	 } else{
-		   $('#status').html(" Great . You have solved the Puzzle"); 
-	 }		
-		
-	} else{
-		
-        
-   
-
-           // Make the best move for black
+$('#status').html(" No more puzzles left.Come back tomorrow for more interesting puzzles");
+} else{
+ $('#status').html(" Great . You have solved the Puzzle"); 
+}				
+} else{
+// Make the best move for black
         window.setTimeout(function() {
             makeBestMove(game.turn());
         }, 250)
