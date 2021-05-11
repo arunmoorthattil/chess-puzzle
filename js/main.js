@@ -197,6 +197,8 @@ function makeBestMove(color) {
         .addClass('highlight-' + colorToHighlight)
     }
  if(positions[currPos].moves.length===currMov){
+	 console.log(tpoints);
+	  console.log(points);
 		tpoints+=points;
 		solved+=1;
 		points=0;
@@ -299,7 +301,7 @@ function onDrop (source, target) {
 	if(positions[currPos].moves.length===currMov){
 		tpoints+=points;
 		solved+=1;
-		points=0;
+		points=5;
 	        $('#status').html("Solved.");
 		 $('#score').html("solved: "+solved);
 		$('#points').html("points: "+tpoints);
