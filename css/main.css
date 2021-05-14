@@ -3,7 +3,7 @@
 }
 
 #myBoard {
-    max-width: 100%;
+    max-width: 400%;
     height: auto;
     overflow: scroll;
 }
